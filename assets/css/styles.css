@@ -521,7 +521,7 @@ header {
 
 .text-header h1 {
   font-size: 50px;
-  background: linear-gradient(90deg, #ffffff, #D90AA5); /* Gradien horizontal */
+ background: linear-gradient(90deg, #ff00cc, #3333ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: bold;
@@ -711,7 +711,8 @@ header {
   }
 
   .text-header h1 {
-    font-size: 1.6rem;
+    font-size: 2rem;
+    margin-top: -1rem;
   }
 
   .text-header p {
@@ -720,10 +721,22 @@ header {
   }
 
   .text-header h4 {
-    width: 120px;
-    font-size: 0.9rem;
+    width: 350px;
+    font-size: 1.3rem;
     padding: 8px 12px;
     margin: 1rem auto;
+  }
+
+  .hero-section {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 1rem;
+  }
+
+  .hero-section img {
+    width: 300px;
+    margin-left: -1rem;
   }
 
   .contact-button button,
@@ -734,13 +747,14 @@ header {
   }
 
   .button-header {
-    flex-direction: column;
+    display: flex;
     align-items: center;
     justify-content: center;
     margin-top: 2rem;
     padding: 0.5rem;
     gap: 0.5rem;
   }
+
 }
 
 
@@ -955,6 +969,21 @@ main {
   }
 }
 
+@media (max-width: 480px) {
+   .card-services {
+    /* flex-direction: column; */
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .card-design {
+    width: 90%;
+    padding: 1.5rem 1rem;
+    min-height: 180px;
+  }
+}
+
 /*==================== OPEN ABOUT ====================*/
 
 
@@ -1063,7 +1092,7 @@ main {
 }
 @media (max-width: 768px) {
   .about-section {
-    margin-top: 40rem;
+    margin-top: 10rem;
   }
 
   .about-title {
@@ -1121,7 +1150,6 @@ main {
   }
 
   .card-about {
-    flex-direction: column;
     gap: 1rem;
   }
 }
@@ -1481,9 +1509,8 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;   /* <== PENTING untuk tengahin isinya */
-    gap: 1.5rem;
+    gap: 0.5rem;
     width: 100%;
-    margin-left: 14%;
   }
 
   .project-card {
@@ -1518,6 +1545,15 @@ main {
   .btn-outline-info {
     font-size: 14px;
     height: 36px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;   /* <== PENTING untuk tengahin isinya */
+    width: 100%;
   }
 }
 
@@ -1729,7 +1765,7 @@ main {
 
 @media screen and (max-width: 768px) {
   .class-case-study {
-    margin-top: 500%;
+    margin-top: 350%;
   }
 
   .case-study {
