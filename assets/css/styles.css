@@ -1141,7 +1141,7 @@ main {
 
 @media (max-width: 480px) {
   .about-section {
-    margin-top: 175%;
+    margin-top: 150%;
   }
   .about-title {
     font-size: 28px;
@@ -1157,9 +1157,9 @@ main {
   }
 }
 
-@media (max-width: 425px) {
+@media (max-width: 430px) {
   .about-section {
-    margin-top: 200%;
+    margin-top: 180%;
   }
   .about-title {
     font-size: 28px;
@@ -1861,10 +1861,58 @@ main {
   }
 }
 
-@media screen and (max-width: 480px) {
-  .class-case-study {
-    margin-top: ;
+@media screen and (max-width: 430px) {
+  .container {
+    max-width: 1200px;      /* Atur lebar maksimum */
+    width: 100%;
+    margin: 0 auto;         /* Tengah secara horizontal */
+    padding: 0 1rem;        /* Jaga agar tidak mepet kiri/kanan */
+    box-sizing: border-box;
   }
+  
+
+  .class-case-study {
+    margin-top: 350%;
+  }
+
+  .content-case-study {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+
+  .content-case-study p {
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: normal;
+    text-align: justify;
+    word-break: break-word;     /* Ini penting untuk memaksa kata agar tidak overflow */
+    max-width: 100%;            /* Pastikan tidak melebihi lebar parent */
+  }
+  
+
+  .timeline {
+    display: flex;
+    flex-direction: column;   /* Elemen disusun ke bawah */
+    align-items: center;      /* Tengah secara horizontal */
+    gap: 20px;
+    width: 100%;              /* Hindari melampaui lebar parent */
+    max-width: 100%;          /* Batasi supaya tidak melebar */
+    padding: 0 1rem;          /* Tambahkan padding jika perlu */
+    box-sizing: border-box;   /* Pastikan padding tidak menyebabkan overflow */
+    overflow-x: hidden;       /* Tangani jika masih ada elemen yang terlalu lebar */
+  }
+
+  
+  .media-case-study {
+    width: 700px;               /* Lebar penuh dari parent */
+    height: 500px;              /* Tinggi penuh dari parent (pastikan parent punya tinggi yang jelas) */
+    padding: 50px 30px;
+  }
+  
 }
 
 /*================= OPEN EXPERIENCE ===============*/
@@ -2036,6 +2084,11 @@ main {
   }
 }
 
+@media screen and (max-width: 430px) {
+  .experience {
+    margin-top: 490%;
+  }
+}
 
 /* ================ OPEN FOOTER ================= */
 .footer-simple {
