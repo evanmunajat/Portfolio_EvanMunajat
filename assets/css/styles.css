@@ -1141,7 +1141,25 @@ main {
 
 @media (max-width: 480px) {
   .about-section {
-    margin-top: 150%;
+    margin-top: 175%;
+  }
+  .about-title {
+    font-size: 28px;
+  }
+
+  .about-text {
+    font-size: 15px;
+    padding: 20px;
+  }
+
+  .card-about {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 425px) {
+  .about-section {
+    margin-top: 200%;
   }
   .about-title {
     font-size: 28px;
