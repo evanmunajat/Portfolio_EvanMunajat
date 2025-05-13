@@ -1576,7 +1576,7 @@ main {
     align-items: center;   /* <== PENTING untuk tengahin isinya */
     gap: 1rem;
     width: 100%;
-    margin-left: 10%;
+    margin-left: 8%;
   }
 }
 
@@ -1870,7 +1870,7 @@ main {
   }
 
   .class-case-study {
-    margin-top: 350%;
+    margin-top: 360%;
   }
 
   .content-case-study {
