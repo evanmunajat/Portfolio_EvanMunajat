@@ -1830,7 +1830,6 @@ main {
 
 .timeline-item {
   flex: 1 1 calc(50% - 20px); /* Membuat card 50% lebar per baris */
-  max-width: calc(50% - 20px); /* Batasin lebar card agar maksimal 50% */
   text-align: center;
   justify-content: center;
   align-items: center;
@@ -1863,13 +1862,12 @@ main {
 
 @media screen and (max-width: 430px) {
   .container {
-    max-width: 1200px;      /* Atur lebar maksimum */
+    max-width: 1200px;
     width: 100%;
-    margin: 0 auto;         /* Tengah secara horizontal */
-    padding: 0 1rem;        /* Jaga agar tidak mepet kiri/kanan */
+    margin: 0 auto;
+    padding: 0 1rem;
     box-sizing: border-box;
   }
-  
 
   .class-case-study {
     margin-top: 350%;
@@ -1882,38 +1880,52 @@ main {
     width: 100%;
     box-sizing: border-box;
   }
-  
 
   .content-case-study p {
     font-size: 16px;
     font-weight: 400;
     letter-spacing: normal;
     text-align: justify;
-    word-break: break-word;     /* Ini penting untuk memaksa kata agar tidak overflow */
-    max-width: 100%;            /* Pastikan tidak melebihi lebar parent */
+    word-break: break-word;
+    max-width: 100%;
   }
-  
 
   .timeline {
     display: flex;
-    flex-direction: column;   /* Elemen disusun ke bawah */
-    align-items: center;      /* Tengah secara horizontal */
+    flex-direction: column;
+    align-items: center;
     gap: 20px;
-    width: 100%;              /* Hindari melampaui lebar parent */
-    max-width: 100%;          /* Batasi supaya tidak melebar */
-    padding: 0 1rem;          /* Tambahkan padding jika perlu */
-    box-sizing: border-box;   /* Pastikan padding tidak menyebabkan overflow */
-    overflow-x: hidden;       /* Tangani jika masih ada elemen yang terlalu lebar */
+    width: 100%;
+    max-width: 100%;
+    padding: 0 1rem;
+    box-sizing: border-box;
+    overflow-x: hidden;
   }
 
-  
-  .media-case-study {
-    width: 700px;               /* Lebar penuh dari parent */
-    height: 500px;              /* Tinggi penuh dari parent (pastikan parent punya tinggi yang jelas) */
-    padding: 50px 30px;
+  .timeline-item {
+    flex: 1 1 calc(50% - 20px); /* Membuat card 50% lebar per baris */
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
   }
-  
+
+  .media-case-study {
+    width: 100%;
+    height: auto;
+    padding: 20px 15px;
+    box-sizing: border-box;
+  }
+
+  .media-case-study img,
+  .media-case-study video {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    display: block;
+  }
 }
+
 
 /*================= OPEN EXPERIENCE ===============*/
 
@@ -2086,7 +2098,7 @@ main {
 
 @media screen and (max-width: 430px) {
   .experience {
-    margin-top: 490%;
+    margin-top: 519%;
   }
 }
 
