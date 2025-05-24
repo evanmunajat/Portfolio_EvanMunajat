@@ -1016,8 +1016,6 @@ section {
   }
 }
 
-/* ... bagian atas tetap sama ... */
-
 /* --- Tablet: max-width 1024px --- */
 @media (max-width: 1024px) {
   .card-services-custom {
@@ -1027,7 +1025,10 @@ section {
     gap: 2.5rem; /* jarak antar card */
     padding: 3rem 2rem;
   }
-  /* Tidak mengubah ukuran card */
+
+  .text-services p {
+    margin-bottom: 2rem; /* tambah jarak ke bawah */
+  }
 }
 
 /* --- Responsive Adjustments: max-width 768px --- */
@@ -1043,6 +1044,7 @@ section {
 
   .text-services p {
     font-size: 16px;
+    margin-bottom: 2rem; /* tambah jarak ke bawah */
   }
 
   .card-services-custom {
@@ -1051,7 +1053,6 @@ section {
     gap: 2rem;
     padding: 2rem 1.5rem;
   }
-  /* Tidak mengubah ukuran .custom-card, tetap width: 270px */
 }
 
 /* --- Mobile: max-width 576px --- */
@@ -1062,7 +1063,10 @@ section {
     gap: 1.5rem;
     padding: 1.5rem 1rem;
   }
-  /* Tetap width: 270px untuk .custom-card */
+
+  .text-services p {
+    margin-bottom: 2rem; /* tambah jarak ke bawah */
+  }
 }
 
 /* --- Small Mobile: max-width 480px --- */
@@ -1074,8 +1078,12 @@ section {
     gap: 2rem;
     padding: 1.5rem 1rem;
   }
-  /* Tetap width: 270px */
+
+  .text-services p {
+    margin-bottom: 2rem; /* tambah jarak ke bawah */
+  }
 }
+
 
 
 
@@ -1259,6 +1267,7 @@ section {
 }
 
 /* =============== OPEN SKIL ============== */
+
 /* Tengahin 1-2 item terakhir kalau total card-nya > 7 */
 .skills-logo-grid > .skill-logo-card:nth-last-child(1):nth-child(odd),
 .skills-logo-grid > .skill-logo-card:nth-last-child(2):nth-child(even) {
@@ -1511,17 +1520,15 @@ section {
 
 .btn-group {
   margin-top: 1rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
+  display: block;       /* Ganti flex ke block supaya full-width */
+  width: 100%;          /* Pastikan dia ambil 100% lebar */
 }
+
 .custom-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.75rem 1.5rem;  /* Atas-bawah: 12px, Kanan-kiri: 24px */
-  font-size: 1rem;           /* 16px */
-  width: 100%;               /* Tombol full lebar parent */
+  display: block;       /* Block supaya bisa width 100% */
+  width: 100%;          /* Full lebar parent */
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
   border-radius: 16px;
   cursor: pointer;
   position: relative;
@@ -1533,7 +1540,9 @@ section {
   background: linear-gradient(135deg, #0f0f0f, #1b0033, #003366);
   border: 2px solid #ffffff;
   box-shadow: 0 6px 15px rgba(0, 114, 255, 0.3);
+  text-align: center;   /* Tengahin teks */
 }
+
 
 .custom-btn a {
   color: #ffffff;
@@ -1586,99 +1595,43 @@ section {
 }
 
 
-
-
-/* Responsif tambahan */
+/* Responsif untuk tablet dan bawah */
 @media screen and (max-width: 1024px) {
-  .portfolio-title {
-    font-size: 18px;
-    padding: 0 15px;
+  .btn-group {
+    width: 100%;
+    display: block;
   }
 
-  .project-image img {
-    height: 250px;
-  }
-
-  .project-title {
-    font-size: 1.1rem;
-  }
-
-  .btn-outline-info {
-    font-size: 14px;
-    height: 36px;
+  .custom-btn {
+    width: 100%;
+    padding: 0.5rem 1rem;
   }
 }
 
 @media screen and (max-width: 768px) {
-  .portfolio {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;  /* Kalau mau vertikal tengah juga, ganti ke center */
-    padding: 20px;
+  .btn-group {
     width: 100%;
+    display: block;
   }
 
-   .portfolio-title h1 {
-    font-size: 35px;
-  }
-  
-  .portfolio-title p {
-    font-size: 12px;
-  }
-
-  .grid {
-    display: flex;
-    flex-direction: column;
-    align-items: center;   /* <== PENTING untuk tengahin isinya */
-    gap: 0.5rem;
+  .custom-btn {
     width: 100%;
-  }
-
-  .project-card {
-    width: 90%;            /* Atur sesuai kebutuhan */
-    max-width: 400px;
-    margin: 0 auto;        /* Ini buat center juga */
-  }
-
-  .project-image img {
-    width: 100%;
-    height: auto;
-    max-height: 250px;
-    object-fit: cover;
-  }
-
-  .project-content {
-    padding: 0.25rem;
-  }
-
-  .project-role {
-    font-size: 0.9rem;
-  }
-
-  .project-title {
-    font-size: 1rem;
-  }
-
-  .project-desc {
-    font-size: 0.85rem;
-  }
-
-  .btn-outline-info {
-    font-size: 14px;
-    height: 36px;
+    padding: 0.6rem 1rem;
   }
 }
 
 @media screen and (max-width: 480px) {
-  .grid {
-    display: flex;
-    flex-direction: column;
-    align-items: center;   /* <== PENTING untuk tengahin isinya */
-    gap: 1rem;
+  .btn-group {
     width: 100%;
+    display: block;
+  }
+
+  .custom-btn {
+    width: 100%;
+    padding: 0.7rem 1rem;
   }
 }
+
 
 /*==================== OPEN CASE STUDY ====================*/
 
