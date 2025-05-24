@@ -60,3 +60,9 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 });
+
+
+// LOGO CLIENT SROUSEL
+
+var copy = document.querySelector(".logos-slide").cloneNode(true);
+document.querySelector(".logos").appendChild(copy);

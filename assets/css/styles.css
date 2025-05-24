@@ -495,14 +495,40 @@ header {
   margin-left: 10rem;
 }
 
+/* Hero section kanan */
+.hero-section {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.hero-section img {
+  max-width: 480px;
+  width: 100%;
+  height: auto;
+  animation: float 4s ease-in-out infinite;
+  margin-left: 4rem;
+}
+
+/* Float Animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
 .text-header img {
   width: 20px;
   height: 20px;
 }
 
 .text-header h1 {
-  font-size: 50px;
- background: linear-gradient(90deg, #ff00cc, #3333ff);
+  font-size: 40px;
+  background: linear-gradient(90deg, #ff00cc, #3333ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: bold;
@@ -742,7 +768,96 @@ header {
 
 }
 
+/*==================== OPEN CLIENT ====================*/
 
+
+
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.logos {
+  overflow: hidden;
+  padding: 40px 0;
+  white-space: nowrap;
+  position: relative;
+}
+
+.logos:before,
+.logos:after {
+  position: absolute;
+  top: 0;
+  width: 250px;
+  height: 100%;
+  content: "";
+  z-index: 2;
+}
+
+.logos:before {
+  left: 0;
+  background: linear-gradient(to left, rgba(23, 23, 23, 0), #1b0033, #171717);
+}
+
+.logos:after {
+  right: 0;
+  background: linear-gradient(to right, rgba(23, 23, 23, 0), #1b0033, #171717);
+}
+
+
+.logos:hover .logos-slide {
+  animation-play-state: paused;
+}
+
+.logos-slide {
+  display: inline-block;
+  animation: 35s slide infinite linear;
+}
+
+.logos-slide img {
+  height: 35px;
+  margin: 0 40px;
+  filter: brightness(0) invert(1); /* Membuat logo putih */
+  transition: filter 0.3s ease;
+}
+
+.logos-slide img:hover {
+  filter: brightness(0) invert(0.7); /* Efek hover agar tidak terlalu silau */
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+  .logos-slide img {
+    height: 25px;
+    margin: 0 30px;
+  }
+
+  .logos:before,
+  .logos:after {
+    width: 150px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+  .logos-slide img {
+    height: 20px;
+    margin: 0 20px;
+  }
+
+  .logos {
+    padding: 20px 0;
+  }
+
+  .logos:before,
+  .logos:after {
+    width: 80px;
+  }
+}
 
 /*==================== OPEN SERVICES ====================*/
 
@@ -773,50 +888,76 @@ section {
 
 .text-services h1 {
   font-size: 40px;
- background: linear-gradient(90deg, #ff00cc, #3333ff);
+  background: linear-gradient(90deg, #ff00cc, #3333ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* Container Cards */
-.card-services {
-  display: flex;
-  flex-wrap: wrap;
-  position: relative;
-  top: auto;
-  left: auto;
-  width: 100%;
-  height: auto;
-  gap: 2rem;
-  align-items: center;
-  justify-content: center;
-  margin-top: 0;
+.card-services-custom {
+  margin-top: 5rem;
+  padding: 1rem;
+  gap: 3rem;
 }
 
-/* Individual Card */
-.card-design {
-  padding: 1.5rem;
-  width: 280px;
-  height: 240px;
-  border: solid 1px #fff;
+.custom-card:nth-child(4) {
+  margin-top: 2rem;
+}
+
+
+.custom-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid #ffffff20;
+  border-radius: 20px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+  padding: 2rem 1.5rem 1.5rem;
+  width: 270px;
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  backdrop-filter: blur(10px);
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  transition: all 0.3s ease;
+  color: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: visible;
 }
 
-.card-body-services .icon-card i {
-  font-size: 2.5rem;
-  margin-bottom: 1.5rem;
+.custom-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.35);
 }
+
+.icon-floating {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(90deg, #00d2ff, #3a47d5);
+  border: solid 1px #fff;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.8rem;
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  z-index: 2;
+}
+
+.custom-card h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.custom-card p {
+  font-size: 0.95rem;
+  color: #ccc;
+}
+
 
 /* Hover Effect */
-.card-design:hover {
+.custom-card:hover {
   transform: scale(1.05);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
   border: 1px solid transparent;
@@ -824,7 +965,7 @@ section {
 }
 
 /* Border glow effect */
-.card-design::before {
+.custom-card::before {
   content: '';
   position: absolute;
   top: -2px;
@@ -839,7 +980,7 @@ section {
   border-radius: 20px;
 }
 
-.card-design:hover::before {
+.custom-card:hover::before {
   opacity: 1;
 }
 
@@ -978,9 +1119,6 @@ section {
 
 /*==================== OPEN ABOUT ====================*/
 
-
-
-
 .about-section {
   max-width: 900px;
   text-align: center;
@@ -1032,12 +1170,30 @@ section {
   text-align: center;
   min-width: 150px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
+  transform-style: preserve-3d; /* untuk efek 3D */
+  will-change: transform, box-shadow;
+  transform-origin: center bottom;
 }
 
 .stat-card:hover {
-  transform: translateY(-5px);
+  animation: hoverEffect 0.6s forwards;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
 }
+
+@keyframes hoverEffect {
+  0% {
+    transform: perspective(1000px) translateY(0) scale(1) rotateX(0deg);
+  }
+  50% {
+    transform: perspective(1000px) translateY(-12px) scale(1.1) rotateX(5deg);
+  }
+  100% {
+    transform: perspective(1000px) translateY(-8px) scale(1.05) rotateX(2deg);
+  }
+}
+
 
 .stat-card h2 {
   font-size: 32px;
@@ -1053,17 +1209,6 @@ section {
   margin: 0;
 }
 
-
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
 @media (max-width: 600px) {
   .about-title {
