@@ -535,6 +535,10 @@ header {
   color: #fff;
 }
 
+.contact-button a:hover {
+  color: #fff;
+}
+
 .contact-button button {
   padding: 0.6rem 1.5rem;
   background: linear-gradient(135deg, #0f0f0f, #1b0033, #003366);
