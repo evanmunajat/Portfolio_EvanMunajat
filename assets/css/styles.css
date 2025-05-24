@@ -16,6 +16,9 @@
 
 html {
   scroll-behavior: smooth;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -27,6 +30,9 @@ body {
   font-family: 'Poppins', sans-serif;
   overflow-x: hidden;
   line-height: 1.6;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 /* Animasi shifting gradient */
@@ -873,7 +879,6 @@ section {
   }
 }
 
-
 .text-services {
   position: relative;
   top: auto;
@@ -894,15 +899,17 @@ section {
 }
 
 .card-services-custom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   margin-top: 5rem;
   padding: 1rem;
   gap: 3rem;
 }
 
 .custom-card:nth-child(4) {
-  margin-top: 2rem;
+  margin-top: rem;
 }
-
 
 .custom-card {
   background: rgba(255, 255, 255, 0.05);
@@ -917,6 +924,7 @@ section {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
   overflow: visible;
+  margin-bottom: 2rem; /* tambahan jarak bawah saat wrap */
 }
 
 .custom-card:hover {
@@ -954,7 +962,6 @@ section {
   font-size: 0.95rem;
   color: #ccc;
 }
-
 
 /* Hover Effect */
 .custom-card:hover {
@@ -1009,113 +1016,70 @@ section {
   }
 }
 
+/* ... bagian atas tetap sama ... */
+
 /* --- Tablet: max-width 1024px --- */
 @media (max-width: 1024px) {
-  .card-services {
+  .card-services-custom {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 1.5rem;
-    padding: 2rem 1rem;
+    gap: 2.5rem; /* jarak antar card */
+    padding: 3rem 2rem;
   }
+  /* Tidak mengubah ukuran card */
 }
 
-/* Responsive Adjustments */
+/* --- Responsive Adjustments: max-width 768px --- */
 @media (max-width: 768px) {
-.text-services {
-  text-align: center;
-  margin-bottom: 2rem;
-}
+  .text-services {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
 
-.text-services h1 {
-  font-size: 35px;
-}
+  .text-services h1 {
+    font-size: 35px;
+  }
 
-.text-services p {
-  font-size: 16px;
-}
+  .text-services p {
+    font-size: 16px;
+  }
 
-.card-services {
-  flex-direction: column;
-  align-items: center;
-  gap: 1.5rem;
+  .card-services-custom {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem 1.5rem;
+  }
+  /* Tidak mengubah ukuran .custom-card, tetap width: 270px */
 }
-
-.card-design {
-  width: 90%;
-  padding: 1.5rem 1rem;
-  min-height: 180px;
-}
-
-.text-card {
-  margin-top: 35px;
-}
-
-.text-card h1 {
-  font-size: 1.2rem;
-  text-align: center;
-  margin-top: 15px; /* tambahan jarak atas untuk teks */
-}
-
-.text-card p {
-  font-size: 0.85rem;
-  text-align: center;
-}
-
-.icon-card i {
-  font-size: 5rem;
-  display: block;
-  text-align: center;
-  margin-bottom: 30px; /* tingkatkan jarak bawah ikon */
-}
-
-}
-
 
 /* --- Mobile: max-width 576px --- */
 @media (max-width: 576px) {
-  .card-services {
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .card-design {
-    width: 90%;
-    min-height: 180px;
-    padding: 1.5rem 1rem;
-  }
-
-  .card-body-services .icon-card i {
-    margin-bottom: 0.8rem;
-    font-size: 1.8rem;
-  }
-
-  .text-card h1 {
-    font-size: 1rem;
-    text-align: center;
-  }
-
-  .text-card p {
-    font-size: 0.75rem;
-    text-align: center;
-  }
-}
-
-@media (max-width: 480px) {
-   .card-services {
-    /* flex-direction: column; */
-    display: flex;
-    align-items: center;
+  .card-services-custom {
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 1.5rem;
-  }
-
-  .card-design {
-    width: 90%;
     padding: 1.5rem 1rem;
-    min-height: 180px;
   }
+  /* Tetap width: 270px untuk .custom-card */
 }
+
+/* --- Small Mobile: max-width 480px --- */
+@media (max-width: 480px) {
+  .card-services-custom {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1.5rem 1rem;
+  }
+  /* Tetap width: 270px */
+}
+
+
+
+
 
 /*==================== OPEN ABOUT ====================*/
 
@@ -1469,31 +1433,40 @@ section {
 .grid {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; /* Biar baris terakhir auto center */
-  gap: 1rem;
+  justify-content: center;
+  gap: 1.5rem;
 }
-
-
 
 .project-card {
   background: rgba(255, 255, 255, 0.05);
   border-radius: 24px;
-  overflow: hidden;
-  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease;
   display: flex;
   flex-direction: column;
-  padding: 10px 20px;
+  align-items: center;
+  padding: 20px;
+  width: 300px;
+}
+
+.project-image {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px; /* jarak antara gambar & isi card */
+  overflow: hidden;
+  border-radius: 16px;
 }
 
 .project-image img {
   width: 100%;
-  height: 290px;
-  filter: opacity(10px);
-  border-radius: 16px;
+  height: 100%;
   object-fit: cover;
   display: block;
 }
+
 
 .project-card:hover {
   transform: scale(1.02);
@@ -1518,7 +1491,7 @@ section {
 }
 
 .project-title {
-  font-size: 1.25rem;
+  font-size: 1.10rem;
   font-weight: bold;
   background: linear-gradient(90deg, #00d2ff, #3a47d5);
   -webkit-background-clip: text;
