@@ -1419,7 +1419,6 @@ section {
 
 /*==================== OPEN PORTFOLIO ====================*/
 
-
 .portfolio-title {
   font-size: 20px;
   position: relative;
@@ -1455,16 +1454,17 @@ section {
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  width: 300px;
+  width: 450px;
+  cursor: pointer; /* biar keliatan klikable */
 }
 
 .project-image {
   width: 100%;
-  height: 200px;
+  height: 300px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 20px; /* jarak antara gambar & isi card */
+  margin-bottom: 20px;
   overflow: hidden;
   border-radius: 16px;
 }
@@ -1474,15 +1474,16 @@ section {
   height: 100%;
   object-fit: cover;
   display: block;
+  transition: transform 0.3s ease;
 }
-
 
 .project-card:hover {
-  transform: scale(1.02);
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0, 114, 255, 0.5);
 }
 
-.project-image :hover {
-  filter: none;
+.project-card:hover .project-image img {
+  transform: scale(1.1);
 }
 
 .project-content {
@@ -1491,6 +1492,8 @@ section {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  width: 100%;
+  text-align: center;
 }
 
 .project-role {
@@ -1499,138 +1502,48 @@ section {
   margin-bottom: 0.25rem;
 }
 
-.project-title {
-  font-size: 1.10rem;
-  font-weight: bold;
+.project-title-link {
+  font-size: 1.4rem; /* lebih besar dari sebelumnya */
+  font-weight: 700;
   background: linear-gradient(90deg, #00d2ff, #3a47d5);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-
-.project-desc {
-  margin: 0.75rem 0;
-  color: #94a3b8;
-  flex-grow: 1;
-}
-
-.project-tags {
-  font-size: 0.9rem;
-  color: #fff;
-}
-
-.btn-group {
-  margin-top: 1rem;
-  display: block;       /* Ganti flex ke block supaya full-width */
-  width: 100%;          /* Pastikan dia ambil 100% lebar */
-}
-
-.custom-btn {
-  display: block;       /* Block supaya bisa width 100% */
-  width: 100%;          /* Full lebar parent */
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  border-radius: 16px;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-  user-select: none;
   text-decoration: none;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  color: #fff;
-  background: linear-gradient(135deg, #0f0f0f, #1b0033, #003366);
-  border: 2px solid #ffffff;
-  box-shadow: 0 6px 15px rgba(0, 114, 255, 0.3);
-  text-align: center;   /* Tengahin teks */
+  padding: 12px 16px;
+  border-radius: 16px;
+  display: inline-block;
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+/* Hapus tombol lama */
+.btn-group {
+  display: none;
 }
 
 
-.custom-btn a {
-  color: #ffffff;
-}
-
-.custom-btn::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -120%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    120deg,
-    rgba(255, 255, 255, 0.15) 0%,
-    rgba(255, 255, 255, 0.35) 50%,
-    rgba(255, 255, 255, 0) 100%
-  );
-  transform: skewX(-20deg);
-  transition: left 0.6s ease;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.custom-btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 25px rgba(0, 114, 255, 0.6);
-  border-color: #ffffff;
-  background: linear-gradient(135deg, #003366, #1b0033, #0f0f0f);
-  color: #e0f2fe;
-}
-
-.custom-btn:hover::before {
-  left: 120%;
-}
-
-.custom-btn:focus-visible {
-  outline: 2px solid #38bdf8;
-  outline-offset: 4px;
-}
-
-.custom-btn:disabled,
-.custom-btn[disabled] {
-  cursor: not-allowed;
-  opacity: 0.6;
-  box-shadow: none;
-  background: #222;
-  color: #888;
-  border-color: #444;
-}
-
-
-/* Responsif untuk tablet dan bawah */
+/* Responsive tweaks */
 @media screen and (max-width: 1024px) {
-  .btn-group {
-    width: 100%;
-    display: block;
+  .project-card {
+    width: 48%; /* sedikit lebih besar tapi masih ada gap */
   }
 
-  .custom-btn {
-    width: 100%;
-    padding: 0.5rem 1rem;
+  .portfolio-title p {
+    font-size: 13px;
   }
 }
 
 @media screen and (max-width: 768px) {
-  .btn-group {
-    width: 100%;
-    display: block;
+  .project-card {
+    width: 100%; /* full width di mobile */
   }
-
-  .custom-btn {
-    width: 100%;
-    padding: 0.6rem 1rem;
+  
+  .portfolio-title p {
+    font-size: 13px;
   }
 }
 
-@media screen and (max-width: 480px) {
-  .btn-group {
-    width: 100%;
-    display: block;
-  }
 
-  .custom-btn {
-    width: 100%;
-    padding: 0.7rem 1rem;
-  }
-}
 
 
 /*==================== OPEN CASE STUDY ====================*/
