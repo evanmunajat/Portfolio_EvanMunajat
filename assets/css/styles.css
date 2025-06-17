@@ -240,7 +240,7 @@ body {
 /*==================== CUSTOM NAVBAR ====================*/
 
 nav.custom-navbar {
-  position: sticky;
+  position: fixed;
   top: 0;
   width: 100%;
   z-index: 999;
