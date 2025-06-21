@@ -288,6 +288,12 @@ nav.custom-navbar.nav-glass {
   padding: 0;
 }
 
+.custom-nav-link a.active {
+  color: #D90AA5; /* atau warna highlight lo */
+  font-weight: 600;
+}
+
+
 .custom-nav-item a {
   text-decoration: none;
   color: #fff;

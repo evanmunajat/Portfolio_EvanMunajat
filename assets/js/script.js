@@ -1,3 +1,44 @@
+  // Ambil semua link menu
+  const navLinks = document.querySelectorAll(".custom-nav-link a");
+
+  // Fungsi untuk remove active dari semua
+  function removeActive() {
+    navLinks.forEach(link => {
+      link.classList.remove("active");
+    });
+  }
+
+  // Tambahin event click ke tiap link
+  navLinks.forEach(link => {
+    link.addEventListener("click", function() {
+      removeActive();
+      this.classList.add("active");
+    });
+  });
+
+  // BONUS: Active saat scroll ke section
+  const sections = document.querySelectorAll("section");
+
+  window.addEventListener("scroll", function() {
+    let current = "";
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 100;
+      if (window.scrollY >= sectionTop) {
+        current = section.getAttribute("id");
+      }
+    });
+
+    removeActive();
+    navLinks.forEach(link => {
+      if (link.getAttribute("href") === "#" + current) {
+        link.classList.add("active");
+      }
+    });
+  });
+
+
+
+
 document.addEventListener('DOMContentLoaded', function () {
   const nav = document.querySelector('nav.custom-navbar');
   const menuToggle = document.querySelector('.menu-toggle');
