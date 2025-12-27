@@ -1425,6 +1425,108 @@ section {
 
 /*==================== OPEN PORTFOLIO ====================*/
 
+/* ===============================
+   Portfolio Filter
+================================ */
+
+.portfolio-filter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin: 40px auto;
+  max-width: 100%;
+}
+
+/* Button style */
+.filter-btn {
+  padding: 10px 20px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: transparent;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+/* Active */
+.filter-btn.active {
+  background-color: #ff00cc;
+  border-color: transparent;
+}
+
+/* ===============================
+   Mobile Fix (IMPORTANT)
+================================ */
+@media (max-width: 576px) {
+  .portfolio-filter {
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding: 12px 16px;
+    gap: 10px;
+
+    /* penting */
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .portfolio-filter::-webkit-scrollbar {
+    display: none;
+  }
+
+  .filter-btn {
+    font-size: 13px;
+    padding: 8px 18px;
+  }
+}
+
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.project-card {
+  background: #0f0f0f;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+/* Wajib: hidden bener-bener keluar dari layout */
+.project-card[hidden] {
+  display: none !important;
+}
+
+.project-image img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.project-content {
+  padding: 18px;
+}
+
+.project-role {
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: #aaa;
+  margin-bottom: 6px;
+}
+
+.project-title-link {
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+}
+
+
 .portfolio-title {
   font-size: 20px;
   position: relative;

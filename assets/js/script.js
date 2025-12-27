@@ -107,3 +107,35 @@ document.addEventListener('DOMContentLoaded', function () {
 
 var copy = document.querySelector(".logos-slide").cloneNode(true);
 document.querySelector(".logos").appendChild(copy);
+
+
+// MENU BAR PORTOFOLIO 
+
+const filterButtons = document.querySelectorAll(".filter-btn");
+const projectCards = document.querySelectorAll(".project-card");
+
+filterButtons.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const filter = btn.dataset.filter;
+
+    // Active state
+    filterButtons.forEach((b) => b.classList.remove("active"));
+    btn.classList.add("active");
+
+    // Filter logic
+    projectCards.forEach((card) => {
+      const category = card.dataset.category;
+
+      if (filter === "all" || category === filter) {
+        card.hidden = false;
+      } else {
+        card.hidden = true;
+      }
+    });
+
+    // FIX AOS BUG (WAJIB)
+    if (window.AOS) {
+      AOS.refreshHard();
+    }
+  });
+});
