@@ -107,3 +107,40 @@ document.addEventListener('DOMContentLoaded', function () {
 
 var copy = document.querySelector(".logos-slide").cloneNode(true);
 document.querySelector(".logos").appendChild(copy);
+
+
+// Portfolio menu filter system
+document.addEventListener("DOMContentLoaded", () => {
+  const buttons = document.querySelectorAll(".portfolio-menu .menu-btn");
+  const items = document.querySelectorAll("#portfolio-items .project-item");
+
+  function setActive(button) {
+    buttons.forEach(btn => {
+      btn.classList.toggle("active", btn === button);
+      btn.setAttribute("aria-pressed", btn === button ? "true" : "false");
+    });
+  }
+
+  function filterBy(category) {
+    items.forEach(item => {
+      const itemCat = item.dataset.category;
+
+      if (category === "all" || itemCat === category) {
+        item.classList.remove("hidden");
+      } else {
+        item.classList.add("hidden");
+      }
+    });
+  }
+
+  buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const filter = btn.dataset.filter;
+      setActive(btn);
+      filterBy(filter);
+    });
+  });
+
+  // default show all
+  filterBy("all");
+});

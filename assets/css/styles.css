@@ -1425,6 +1425,66 @@ section {
 
 /*==================== OPEN PORTFOLIO ====================*/
 
+/* Portfolio Menu */
+.portfolio-menu {
+  margin-top: 18px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.menu-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Tombol Menu */
+.menu-btn {
+  background: #ffffff;            /* warna putih */
+  color: #000;                    /* teks hitam */
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 8px 18px;
+  border-radius: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: .2s ease;
+}
+
+/* Hover */
+.menu-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* Active */
+.menu-btn.active {
+  background: linear-gradient(45deg, #ff00cc, #333399, #00c3ff);
+  color: #fff;                    /* teks putih */
+  border-color: #000;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+}
+
+/* For project filter animation */
+.project-item {
+  transition: opacity .25s ease, transform .25s ease;
+}
+
+.project-item.hidden {
+  opacity: 0;
+  transform: scale(.98);
+  pointer-events: none;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+
 .portfolio-title {
   font-size: 20px;
   position: relative;
